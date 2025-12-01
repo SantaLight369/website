@@ -3,73 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Events</title>
+  <title>School Events</title>
   <style>
-    body { font-family: system-ui, amatic sc; padding: 24px; }
-    .events-list {
-      border: 1px solid #ccc;
-      padding: 12px;
-      height: 500px;
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 24px;
+      background-color: #fefefe;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .table-container {
+      max-height: 600px; /* height for scrolling */
       overflow-y: auto;
-      background-color: #f9f9f9;
-      white-space: pre-wrap;
-      font-size: 30px;
-      line-height: 1.5;
+      border: 1px solid #ccc;
       border-radius: 6px;
     }
-    .inhouse { color: red; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+      font-size: 16px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-size: 18px;
+      position: sticky;
+      top: 0; /* freeze header */
+      z-index: 1;
+    }
+    .inhouse {
+      color: red;
+      font-weight: bold;
+    }
+    .noteams {
+      color: gray;
+      font-style: italic;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #fafafa;
+    }
   </style>
 </head>
 <body>
-  <h1>Events Offered</h1>
-  <div class="events-list">
-Animatronics- NO CONTESTANTS
-Architectural Design- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Audio Podcasting- 5 TEAMS
-Biotechnology Design- 4 TEAMS
-Board Game Design- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Chapter Team- 3 TEAMS
-Children's Stories- 4 TEAMS
-Coding- 9 TEAMS
-Computer-Aided Design (CAD), Architecture- NO TEAMS
-Computer-Aided Design (CAD), Engineering- 2 TEAMS
-Data Science & Analytics- 5 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Debating Technological Issues- 3 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Digital Video Production- 5 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Dragster Design- 1 TEAM
-Drone Challenge (UAV)- 2 TEAMS
-Engineering Design- 2 TEAMS
-Extemporaneous Speech- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Fashion Design and Technology- 1 TEAM
-Flight Endurance- 2 TEAMS
-Forensic Science- 16 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Future Technology and Engineering Teacher- 4 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Geospatial Technology- 4 TEAMS
-Manufacturing Prototype- NO TEAMS
-Music Production- 4 TEAMS (<span class="inhouse">IN HOUSE</span>)
-On-Demand Video- 4 TEAMS
-PA Logo Design- 2 TEAMS
-PA - SAFETY ILLUSTRATION
-Photographic Technology- 6 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Prepared Presentation- 14 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Promotional Design- 8 TEAMS (<span class="inhouse">IN HOUSE</span>)
-Robotics- 2 TEAMS
-Senior Solar Sprint- 1 TEAM
-Software Development- 2 TEAMS (<span class="inhouse">IN HOUSE</span>)
-STEM Mass Media- 1 TEAM
-Structural Design & Engineering- 2 TEAMS
-System Control Technology- 1 TEAM
-Technology Bowl- 10 TEAMS
-Technology Problem Solving- 5 TEAMS
-Transportation Modeling- 1 TEAM
-Video Game Design- 1 TEAM
-Virtual Reality Simulation- 1 TEAM
-Webmaster- 5 TEAMS
-Cybersecurity- 1 TEAM
-PA- Medical Technology- 2 TEAMS
-PA- Pin Design- 1 TEAM
+  <h1>School Events</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Event Name</th>
+          <th>Number of Teams</th>
+          <th>IN HOUSE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Animatronics</td><td class="noteams">0</td><td>No</td></tr>
+        <tr><td>Architectural Design</td><td>7</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Audio Podcasting</td><td>5</td><td>No</td></tr>
+        <tr><td>Biotechnology Design</td><td>4</td><td>No</td></tr>
+        <tr><td>Board Game Design</td><td>7</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Chapter Team</td><td>3</td><td>No</td></tr>
+        <tr><td>Children's Stories</td><td>4</td><td>No</td></tr>
+        <tr><td>Coding</td><td>9</td><td>No</td></tr>
+        <tr><td>Computer-Aided Design (CAD), Architecture</td><td class="noteams">0</td><td>No</td></tr>
+        <tr><td>Computer-Aided Design (CAD), Engineering</td><td>2</td><td>No</td></tr>
+        <tr><td>Data Science & Analytics</td><td>5</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Debating Technological Issues</td><td>3</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Digital Video Production</td><td>5</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Dragster Design</td><td>1</td><td>No</td></tr>
+        <tr><td>Drone Challenge (UAV)</td><td>2</td><td>No</td></tr>
+        <tr><td>Engineering Design</td><td>2</td><td>No</td></tr>
+        <tr><td>Extemporaneous Speech</td><td>7</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Fashion Design and Technology</td><td>1</td><td>No</td></tr>
+        <tr><td>Flight Endurance</td><td>2</td><td>No</td></tr>
+        <tr><td>Forensic Science</td><td>16</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Future Technology and Engineering Teacher</td><td>4</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Geospatial Technology</td><td>4</td><td>No</td></tr>
+        <tr><td>Manufacturing Prototype</td><td class="noteams">0</td><td>No</td></tr>
+        <tr><td>Music Production</td><td>4</td><td class="inhouse">Yes</td></tr>
+        <tr><td>On-Demand Video</td><td>4</td><td>No</td></tr>
+        <tr><td>PA Logo Design</td><td>2</td><td>No</td></tr>
+        <tr><td>PA - SAFETY ILLUSTRATION</td><td class="noteams">0</td><td>No</td></tr>
+        <tr><td>Photographic Technology</td><td>6</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Prepared Presentation</td><td>14</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Promotional Design</td><td>8</td><td class="inhouse">Yes</td></tr>
+        <tr><td>Robotics</td><td>2</td><td>No</td></tr>
+        <tr><td>Senior Solar Sprint</td><td>1</td><td>No</td></tr>
+        <tr><td>Software Development</td><td>2</td><td class="inhouse">Yes</td></tr>
+        <tr><td>STEM Mass Media</td><td>1</td><td>No</td></tr>
+        <tr><td>Structural Design & Engineering</td><td>2</td><td>No</td></tr>
+        <tr><td>System Control Technology</td><td>1</td><td>No</td></tr>
+        <tr><td>Technology Bowl</td><td>10</td><td>No</td></tr>
+        <tr><td>Technology Problem Solving</td><td>5</td><td>No</td></tr>
+        <tr><td>Transportation Modeling</td><td>1</td><td>No</td></tr>
+        <tr><td>Video Game Design</td><td>1</td><td>No</td></tr>
+        <tr><td>Virtual Reality Simulation</td><td>1</td><td>No</td></tr>
+        <tr><td>Webmaster</td><td>5</td><td>No</td></tr>
+        <tr><td>Cybersecurity</td><td>1</td><td>No</td></tr>
+        <tr><td>PA- Medical Technology</td><td>2</td><td>No</td></tr>
+        <tr><td>PA- Pin Design</td><td>1</td><td>No</td></tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
-
 
