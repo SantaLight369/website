@@ -6,46 +6,52 @@
   <title>Events</title>
   <style>
     body { font-family: system-ui, sans-serif; padding: 24px; }
-    textarea { width: 100%; height: 150px; font-size: 16px; padding: 8px; }
-    button { margin-top: 8px; padding: 8px 12px; font-size: 16px; }
+    textarea { 
+      width: 100%; 
+      height: 500px; 
+      font-size: 16px; 
+      padding: 8px; 
+      resize: none;
+    }
   </style>
 </head>
 <body>
   <h1>Events</h1>
-  <form id="noteForm">
-    <label for="note">Animatronics- NO CONTESTANTS
-Architectural Design- 7 TEAMS    (IN HOUSE) 
-Audio Podcasting- 5 TEAMS 
+  <label for="note">Our school events (read-only):</label><br/>
+  <textarea id="note" readonly>
+Animatronics- NO CONTESTANTS
+Architectural Design- 7 TEAMS (IN HOUSE)
+Audio Podcasting- 5 TEAMS
 Biotechnology Design- 4 TEAMS
-Board Game Design- 7 TEAMS    (IN HOUSE)
+Board Game Design- 7 TEAMS (IN HOUSE)
 Chapter Team- 3 TEAMS
-Children's Stories-  4 TEAMS
-Coding- 9 TEAMS 
-Computer-Aided Desgin (CAD), Architecture- NO TEAMS
+Children's Stories- 4 TEAMS
+Coding- 9 TEAMS
+Computer-Aided Design (CAD), Architecture- NO TEAMS
 Computer-Aided Design (CAD), Engineering- 2 TEAMS
-Data Science & Analytics- 5 TEAMS    (IN HOUSE)
-Debating Technological Issues- 3 TEAMS    (IN HOUSE)
-Digital Video Production- 5 TEAMS    (IN HOUSE)
-Dragster Design- 1 TEAM 
+Data Science & Analytics- 5 TEAMS (IN HOUSE)
+Debating Technological Issues- 3 TEAMS (IN HOUSE)
+Digital Video Production- 5 TEAMS (IN HOUSE)
+Dragster Design- 1 TEAM
 Drone Challenge (UAV)- 2 TEAMS
-Engineering Design- 2 TEAMS 
-Extemporaneous Speech- 7 TEAMS    (IN HOUSE)
+Engineering Design- 2 TEAMS
+Extemporaneous Speech- 7 TEAMS (IN HOUSE)
 Fashion Design and Technology- 1 TEAM
 Flight Endurance- 2 TEAMS
-Forensic Science- 16 TEAMS    (IN HOUSE)
-Future Technology and Engineering Teacher- 4 TEAMS    (IN HOUSE)
-Geospatial Technology- 4 TEAMS 
+Forensic Science- 16 TEAMS (IN HOUSE)
+Future Technology and Engineering Teacher- 4 TEAMS (IN HOUSE)
+Geospatial Technology- 4 TEAMS
 Manufacturing Prototype- NO TEAMS
-Music Production- 4 TEAMS    (IN HOUSE)
-On-Demand Video- 4 TEAMS 
-PA Logo Desgin- 2 TEAMS
+Music Production- 4 TEAMS (IN HOUSE)
+On-Demand Video- 4 TEAMS
+PA Logo Design- 2 TEAMS
 PA - SAFETY ILLUSTRATION
-Photographic Technology- 6 TEAMS    (IN HOUSE)
-Prepared Presentation- 14 TEAMS    (IN HOUSE)
-Promotional Design- 8 TEAMS    (IN HOUSE)
-Robotics- 2 TEAMS 
+Photographic Technology- 6 TEAMS (IN HOUSE)
+Prepared Presentation- 14 TEAMS (IN HOUSE)
+Promotional Design- 8 TEAMS (IN HOUSE)
+Robotics- 2 TEAMS
 Senior Solar Sprint- 1 TEAM
-Software Development- 2 TEAMS    (IN HOUSE)
+Software Development- 2 TEAMS (IN HOUSE)
 STEM Mass Media- 1 TEAM
 Structural Design & Engineering- 2 TEAMS
 System Control Technology- 1 TEAM
@@ -57,18 +63,4 @@ Virtual Reality Simulation- 1 TEAM
 Webmaster- 5 TEAMS
 Cybersecurity- 1 TEAM
 PA- Medical Technology- 2 TEAMS
-PA- Pin Desgin- 1 TEAM</label><br/>
-    <textarea id="note" name="note" placeholder="Type here..."></textarea><br/>
-    <button type="submit">Save (console)</button>
-  </form>
-
-  <script>
-    document.getElementById('noteForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const text = document.getElementById('note').value;
-      console.log('User text:', text);
-      alert('Text saved to console. Open developer tools to see it.');
-    });
-  </script>
-</body>
-</html>
+PA- Pin De
