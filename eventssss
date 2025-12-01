@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Events</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 24px; }
+    textarea { width: 100%; height: 150px; font-size: 16px; padding: 8px; }
+    button { margin-top: 8px; padding: 8px 12px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Our school offers a total of 45 events.</h1>
+  <form id="noteForm">
+    <label for="note">French fries :D:</label><br/>
+    <textarea id="note" name="note" placeholder="Type here..."></textarea><br/>
+    <button type="submit">Save (console)</button>
+  </form>
 
+  <script>
+    // Example: read content on submit and log it
+    document.getElementById('noteForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const text = document.getElementById('note').value;
+      console.log('User text:', text);
+      alert('Text saved to console. Open developer tools to see it.');
+    });
+  </script>
+</body>
+</html>
