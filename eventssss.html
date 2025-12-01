@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
+  <style>
+  .inhouse { color: red; }
+</style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Events</title>
   <style>
     body { font-family: system-ui, sans-serif; padding: 24px; }
-    textarea { 
-      width: 100%; 
-      height: 500px; 
-      font-size: 16px; 
-      padding: 8px; 
-      resize: none;
+    .events-list {
+      border: 1px solid #ccc;   
+      padding: 12px;
+      height: 500px;          
+      overflow-y: auto;       
+      background-color: #f9f9f9; 
+      white-space: pre-wrap;   
+      font-size: 16px;
+      line-height: 1.5;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
   <h1>Events</h1>
-  <label for="note">Our school events (read-only):</label><br/>
-  <textarea id="note" readonly>
+  <div class="events-list">
 Animatronics- NO CONTESTANTS
-Architectural Design- 7 TEAMS (IN HOUSE)
+Architectural Design- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Audio Podcasting- 5 TEAMS
 Biotechnology Design- 4 TEAMS
-Board Game Design- 7 TEAMS (IN HOUSE)
+Board Game Design- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Chapter Team- 3 TEAMS
 Children's Stories- 4 TEAMS
 Coding- 9 TEAMS
 Computer-Aided Design (CAD), Architecture- NO TEAMS
 Computer-Aided Design (CAD), Engineering- 2 TEAMS
-Data Science & Analytics- 5 TEAMS (IN HOUSE)
-Debating Technological Issues- 3 TEAMS (IN HOUSE)
-Digital Video Production- 5 TEAMS (IN HOUSE)
+Data Science & Analytics- 5 TEAMS (<span class="inhouse">IN HOUSE</span>)
+Debating Technological Issues- 3 TEAMS (<span class="inhouse">IN HOUSE</span>)
+Digital Video Production- 5 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Dragster Design- 1 TEAM
 Drone Challenge (UAV)- 2 TEAMS
 Engineering Design- 2 TEAMS
-Extemporaneous Speech- 7 TEAMS (IN HOUSE)
+Extemporaneous Speech- 7 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Fashion Design and Technology- 1 TEAM
 Flight Endurance- 2 TEAMS
-Forensic Science- 16 TEAMS (IN HOUSE)
-Future Technology and Engineering Teacher- 4 TEAMS (IN HOUSE)
+Forensic Science- 16 TEAMS (<span class="inhouse">IN HOUSE</span>)
+Future Technology and Engineering Teacher- 4 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Geospatial Technology- 4 TEAMS
 Manufacturing Prototype- NO TEAMS
-Music Production- 4 TEAMS (IN HOUSE)
+Music Production- 4 TEAMS (<span class="inhouse">IN HOUSE</span>)
 On-Demand Video- 4 TEAMS
 PA Logo Design- 2 TEAMS
 PA - SAFETY ILLUSTRATION
-Photographic Technology- 6 TEAMS (IN HOUSE)
-Prepared Presentation- 14 TEAMS (IN HOUSE)
-Promotional Design- 8 TEAMS (IN HOUSE)
+Photographic Technology- 6 TEAMS (<span class="inhouse">IN HOUSE</span>)
+Prepared Presentation- 14 TEAMS (<span class="inhouse">IN HOUSE</span>)
+Promotional Design- 8 TEAMS (<span class="inhouse">IN HOUSE</span>)
 Robotics- 2 TEAMS
 Senior Solar Sprint- 1 TEAM
-Software Development- 2 TEAMS (IN HOUSE)
+Software Development- 2 TEAMS (<span class="inhouse">IN HOUSE</span>)
 STEM Mass Media- 1 TEAM
 Structural Design & Engineering- 2 TEAMS
 System Control Technology- 1 TEAM
@@ -63,4 +69,8 @@ Virtual Reality Simulation- 1 TEAM
 Webmaster- 5 TEAMS
 Cybersecurity- 1 TEAM
 PA- Medical Technology- 2 TEAMS
-PA- Pin De
+PA- Pin Design- 1 TEAM
+  </div>
+</body>
+</html>
+
