@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>School Events</title>
-  <style>
-    body {
+  <style type="text/css">
+
+            html, body { 
+            height: 100%;
+            margin: 0;
+            font-family: SourceSansPro, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFFFFF;
+        }
+    .navbar {
+            background:#005DAA; 
+            font-family: SourceSansPro;
+            padding: 25px 5%;
+        }
+
+        .navdiv {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
+        .navdiv ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navdiv ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+body {
       font-family: system-ui, sans-serif;
-      padding: 24px;
       background-color: #fefefe;
     }
     h1 {
       font-size: 40px;
       margin-bottom: 20px;
       color: #333;
+      padding: 24px;
     }
     .table-container {
       max-height: 600px; 
       overflow-y: auto;
       border: 1px solid #ccc;
       border-radius: 6px;
+      padding: 24px;
     }
     table {
       border-collapse: collapse;
@@ -50,9 +85,43 @@
     tbody tr:nth-child(even) {
       background-color: #fafafa;
     }
+    .site-footer {
+            background-color: #EE2624;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 16px;
+            margin-top: auto; 
+        }
+    
   </style>
+    
+  
+    
+  
 </head>
 <body>
+
+   <nav class="navbar">
+    <div class="navdiv">
+        <img src="logo image.png" alt="Logo" /> 
+        
+        
+       
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Timeline</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="#">Achievements</a></li>
+                <li><a href="#">Interviews</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Reference Page</a></li>
+            </ul>
+        </div>
+    </nav>
+
   <h1>School Events</h1>
   <div class="table-container">
     <table>
@@ -112,6 +181,10 @@
       </tbody>
     </table>
   </div>
+
+   <footer class="site-footer">
+        <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
-
