@@ -1,190 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>School Events</title>
-  <style type="text/css">
-
-            html, body { 
-            height: 100%;
-            margin: 0;
-            font-family: SourceSansPro, sans-serif;
-            display: flex;
-            flex-direction: column;
-            background-color: #FFFFFF;
-        }
-    .navbar {
-            background:#005DAA; 
-            font-family: SourceSansPro;
-            padding: 25px 5%;
-        }
-
-        .navdiv {
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-
-        .navdiv ul {
-            list-style-type: none;
-            display: flex;
-            gap: 20px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .navdiv ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-body {
-      font-family: system-ui, sans-serif;
-      background-color: #fefefe;
-    }
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #333;
-      padding: 24px;
-    }
-    .table-container {
-      max-height: 600px; 
-      overflow-y: auto;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 24px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      min-width: 600px;
-      font-size: 16px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-      font-size: 18px;
-      position: sticky;
-      top: 0; 
-      z-index: 1;
-    }
-    .inhouse {
-      color: red;
-      font-weight: bold;
-    }
-    .noteams {
-      color: gray;
-      font-style: italic;
-    }
-    tbody tr:nth-child(even) {
-      background-color: #fafafa;
-    }
-    .site-footer {
-            background-color: #EE2624;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 20px 0;
-            font-size: 16px;
-            margin-top: auto; 
-        }
-    
-  </style>
-    
-  
-    
-  
-</head>
-<body>
-
-   <nav class="navbar">
-    <div class="navdiv">
-        <img src="logo image.png" alt="Logo" /> 
-        
-        
-       
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Our Story</a></li>
-                <li><a href="#">Timeline</a></li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="#">Achievements</a></li>
-                <li><a href="#">Interviews</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Reference Page</a></li>
-            </ul>
-        </div>
-    </nav>
-
-  <h1>School Events</h1>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Event Name</th>
-          <th>Number of Teams</th>
-          <th>IN HOUSE</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Animatronics</td><td class="noteams">0</td><td>No</td></tr>
-        <tr><td>Architectural Design</td><td>7</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Audio Podcasting</td><td>5</td><td>No</td></tr>
-        <tr><td>Biotechnology Design</td><td>4</td><td>No</td></tr>
-        <tr><td>Board Game Design</td><td>7</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Chapter Team</td><td>3</td><td>No</td></tr>
-        <tr><td>Children's Stories</td><td>4</td><td>No</td></tr>
-        <tr><td>Coding</td><td>9</td><td>No</td></tr>
-        <tr><td>Computer-Aided Design (CAD), Architecture</td><td class="noteams">0</td><td>No</td></tr>
-        <tr><td>Computer-Aided Design (CAD), Engineering</td><td>2</td><td>No</td></tr>
-        <tr><td>Data Science & Analytics</td><td>5</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Debating Technological Issues</td><td>3</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Digital Video Production</td><td>5</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Dragster Design</td><td>1</td><td>No</td></tr>
-        <tr><td>Drone Challenge (UAV)</td><td>2</td><td>No</td></tr>
-        <tr><td>Engineering Design</td><td>2</td><td>No</td></tr>
-        <tr><td>Extemporaneous Speech</td><td>7</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Fashion Design and Technology</td><td>1</td><td>No</td></tr>
-        <tr><td>Flight Endurance</td><td>2</td><td>No</td></tr>
-        <tr><td>Forensic Science</td><td>16</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Future Technology and Engineering Teacher</td><td>4</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Geospatial Technology</td><td>4</td><td>No</td></tr>
-        <tr><td>Manufacturing Prototype</td><td class="noteams">0</td><td>No</td></tr>
-        <tr><td>Music Production</td><td>4</td><td class="inhouse">Yes</td></tr>
-        <tr><td>On-Demand Video</td><td>4</td><td>No</td></tr>
-        <tr><td>PA Logo Design</td><td>2</td><td>No</td></tr>
-        <tr><td>PA - SAFETY ILLUSTRATION</td><td class="noteams">0</td><td>No</td></tr>
-        <tr><td>Photographic Technology</td><td>6</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Prepared Presentation</td><td>14</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Promotional Design</td><td>8</td><td class="inhouse">Yes</td></tr>
-        <tr><td>Robotics</td><td>2</td><td>No</td></tr>
-        <tr><td>Senior Solar Sprint</td><td>1</td><td>No</td></tr>
-        <tr><td>Software Development</td><td>2</td><td class="inhouse">Yes</td></tr>
-        <tr><td>STEM Mass Media</td><td>1</td><td>No</td></tr>
-        <tr><td>Structural Design & Engineering</td><td>2</td><td>No</td></tr>
-        <tr><td>System Control Technology</td><td>1</td><td>No</td></tr>
-        <tr><td>Technology Bowl</td><td>10</td><td>No</td></tr>
-        <tr><td>Technology Problem Solving</td><td>5</td><td>No</td></tr>
-        <tr><td>Transportation Modeling</td><td>1</td><td>No</td></tr>
-        <tr><td>Video Game Design</td><td>1</td><td>No</td></tr>
-        <tr><td>Virtual Reality Simulation</td><td>1</td><td>No</td></tr>
-        <tr><td>Webmaster</td><td>5</td><td>No</td></tr>
-        <tr><td>Cybersecurity</td><td>1</td><td>No</td></tr>
-        <tr><td>PA- Medical Technology</td><td>2</td><td>No</td></tr>
-        <tr><td>PA- Pin Design</td><td>1</td><td>No</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-   <footer class="site-footer">
-        <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+<table>
+  <tr>
+    <td>
+      <time>Animatronics</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Architectural Design</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Audio Podcasting</time>
+    </td>
+  </tr>
+</table>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Biotechnology Design</time>
+    </td>
+  </tr>
+</table>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Board Game Design</time>
+    </td>
+  </tr>
+</table>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Chapter Team</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Children's Stories</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Coding</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Computer-Aided Desgin (CAD), Architecture</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Computer-Aided Design (CAD), Engineering</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Data Science & Analytics</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Debating Technological Issues</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Digital Video Production</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Dragster Design</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Drone Challenge (UAV)</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Engineering Design</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Extemporaneous Speech</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Fashion Design and Technology</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Flight Endurance</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Forensic Science</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Future Technology and Engineering Teacher</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time>Geospatial Technology</time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time></time>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <time></time>
+    </td>
+  </tr>
+</table>
