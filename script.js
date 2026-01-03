@@ -1,11 +1,11 @@
-\const calendar = document.querySelector(".calendar"),
+const calendar = document.querySelector(".calendar"),
 date = document.querySelector(".date"),
 daysContainer = document.querySelector(".days"),
 prev = document.querySelector(".prev"),
-next = document.querySelector(".next");
+next = document.querySelector(".next"),
 todayBtn = document.querySelector(".today-btn"),
 gotoBtn = document.querySelector(".goto-btn"),
-dateInput = document.querySelector(".date-input");
+dateInput = document.querySelector(".date-input"),
  eventDay = document.querySelector(".event-day"),
  eventDate = document.querySelector(".event-date"),
  eventsContainer = document.querySelector(".events"),
@@ -33,40 +33,10 @@ const months = [
     "December",  
 ];
 
-const eventsArr = [
-  {
-    day: 3,
-    month: 1,
-    year: 2026,
-    events: [
-      {
-        title: "Event 1 blah blah",
-        time: "10:00 AM",
-      },
-      {
-        title: "Event 2",
-        time: "11:00 AM",
-      },
-    ],
-  },
-    {
-    day: 8,
-    month: 1,
-    year: 2026,
-    events: [
-      {
-        title: "Event 1 wah wah",
-        time: "10:00 AM",
-      },
-      {
-        title: "Event 2",
-        time: "11:00 AM",
-      },
-    ],
-  },
-];
 
+let eventsArr = [];
 
+getEvents();
 
 function initCalendar() {
 
@@ -240,7 +210,7 @@ function addListener() {
         prevMonth();
 
         setTimeout(() => {
-          const days = document.querySelectorAll("day");
+          const days = document.querySelectorAll(".day");
 
           days.forEach((day) => {
             if(!day.classList.contains("prev-date") 
@@ -255,7 +225,7 @@ function addListener() {
         nextMonth();
 
         setTimeout(() => {
-          const days = document.querySelectorAll("day");
+          const days = document.querySelectorAll(".day");
 
           days.forEach((day) => {
             if(!day.classList.contains("next-date") 
@@ -312,8 +282,10 @@ function updateEvents(date) {
     <h3>No Events</h3>
     </div> `;
   }
-console.log(events);
+
   eventsContainer.innerHTML = events;
+
+saveEvents();
 }
 
 addEventSubmit.addEventListener("click" , () => {
@@ -379,6 +351,7 @@ addEventSubmit.addEventListener("click" , () => {
      addEventTo.value = "";
 
      updateEvents(activeDay);
+     initCalendar();
 
      const activeDayElem = document.querySelector(".day.active");
      if (!activeDayElem.classList.contains("event")) {
@@ -395,4 +368,50 @@ function convertTime(time) {
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
 }
-;
+
+
+eventsContainer.addEventListener("click" , (e) => {
+  if (e.target.classList.contains("event")) {
+    const eventTitle = e.target.children[0].children[1].innerHTML;
+
+    eventsArr.forEach((event) => {
+      if (
+        event.day == activeDay &&
+        event.month == month + 1 &&
+        event.year == year
+      ) {
+        event.events.forEach((item, index) => {
+          if(item.title == eventTitle) {
+            event.events.splice(index, 1);
+          }
+        });
+
+        if(event.events.length == 0) {
+          eventsArr.splice(eventsArr.indexOf(event) , 1);
+
+          const activeDayElem = document.querySelector(".day.active");
+          if (activeDayElem.classList.contains("event")) {
+            activeDayElem.classList.remove("event");
+          }
+        }
+      }
+    });
+
+    updateEvents(activeDay);
+  }
+});
+
+
+function saveEvents() {
+  localStorage.setItem("events" , JSON.stringify(eventsArr));
+}
+
+function getEvents() {
+  if(localStorage.getItem("events" != null)) {
+
+    return;
+  }
+
+
+   eventsArr.push(... JSON.parse(localStorage.getItem("events")));
+}
