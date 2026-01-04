@@ -1,0 +1,34 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+div {
+    background-color: white;
+    padding: 35px;
+    border: 4px solid black;
+    height: 1550px;
+    width: 1625px;
+    margin: 100px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 67px;
+}
+
+p {
+    text-align: center; 
+    font-size: 45px;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    background: black;
+}
+
+ul {
+    font-size: 35px;
+}
