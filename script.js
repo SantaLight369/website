@@ -407,11 +407,8 @@ function saveEvents() {
 }
 
 function getEvents() {
-  if(localStorage.getItem("events" != null)) {
+  const storedEvents = localStorage.getItem("events");
+  if (storedEvents === null) return;
 
-    return;
-  }
-
-
-   eventsArr.push(... JSON.parse(localStorage.getItem("events")));
+  eventsArr.push(...JSON.parse(storedEvents));
 }
