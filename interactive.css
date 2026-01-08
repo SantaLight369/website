@@ -1,7 +1,50 @@
 :root {
     --primary-color: #005DAA;
 }
+.navbar {
+        background: #005daa;
+        font-family: "Source Sans Pro";
+        padding: 2px 3%;
+      }
+      .logo {
+        margin-left: auto;
+      }
 
+     .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+      }
+
+      .navdiv ul {
+        list-style-type: none;
+        display: flex;
+        gap: 24px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navdiv ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 21.5px;
+        position: relative;
+      }
+      .navdiv ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width 0.2s ease-in-out;
+      }
+
+      .navdiv ul li a:hover::after {
+        width: 100%;
+      }
 * {
     margin: 0;
     padding: 0;
@@ -163,5 +206,17 @@ mark {
     padding: .5rem .8rem;
     border-radius: 2rem;
 
+    .site-footer {
+        background-color: #ee2624;
+        color: #ffffff;
+        text-align: center;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        padding: 25px 0;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
     font-size: 1rem;
 }
