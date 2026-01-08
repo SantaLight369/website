@@ -25,6 +25,7 @@
         font-size: 21.5px;
         position: relative;
       }
+
       .navdiv ul li a::after {
         content: "";
         position: absolute;
