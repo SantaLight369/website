@@ -205,6 +205,8 @@ mark {
 
     padding: .5rem .8rem;
     border-radius: 2rem;
+    font-size: 1rem;
+}
 
     .site-footer {
         background-color: #ee2624;
@@ -218,5 +220,4 @@ mark {
         width: 100%;
         box-sizing: border-box;
       }
-    font-size: 1rem;
-}
+   
