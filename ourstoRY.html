@@ -12,6 +12,23 @@
       rel="stylesheet"
     />
     <style type="text/css">
+     
+    
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: "Source Sans Pro", sans-serif;
+        background-color: #FFFFFF;
+        height: 100%;
+      }
+
+      body {
+         margin: 0;
+        padding: 0;
+       font-family: "Source Sans Pro", sans-serif;
+        background-color: #FFFFFF;
+      }
+
       .navbar {
         background: #005daa;
         font-family: "Source Sans Pro";
@@ -21,10 +38,11 @@
         margin-left: auto;
       }
 
-      .navdiv {
+       .navdiv {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0 32px;
       }
 
       .navdiv ul {
@@ -56,30 +74,6 @@
         width: 100%;
       }
 
-     
-
-      
-
-      .suggestions {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        max-height: 200px;
-        overflow-y: auto;
-        display: none;
-        z-index: 1000;
-      }
-
-      .suggestions div {
-        padding: 8px 12px;
-        cursor: pointer;
-      }
-
-      .suggestions div:hover {
-        background-attachment: #ffffff;
-      }
       p {
         font-family: "Source Sans Pro", sans-serif;
         font-size: 25px;
@@ -120,12 +114,34 @@
       .pos_cen {
         width: 70%;
         margin: 0 auto;
-        padding: 10px 5px 30px 5px;
+        padding: 6px 5px 30px 5px;
+        overflow: auto;
       }
+
+      .pos_cen::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
       .header {
         text-align: center;
         font-size: 40px;
         font-family: "Source Sans Pro", sans-serif;
+        
+      }
+        .site-footer {
+        background-color: #ee2624;
+        color: #ffffff;
+        text-align: center;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        padding: 25px 0;
+        width: 100%;
+        box-sizing: border-box;
+        height: auto;
+        line-height: 1.4;
       }
     </style>
   </head>
@@ -133,7 +149,7 @@
     <nav class="navbar">
       <div class="navdiv">
         <a href="index.html">
-          <img src="image/logo image.png" alt="Logo" height="90"/>
+          <img src="image/logo image.png" alt="Logo" height="110"/>
         </a>
 
         <ul>
@@ -193,11 +209,17 @@
       <div class="img-wrapper">
         <img class="img_deg-4" src="image/image7.png" />
         <p>
-          A few goals that we have is to establish a TSA club for the middle
-          school as well.
+          A goal that we have is to establish a TSA club for the middle
+          school as well. This would help have everyone know each other better frmm other 
+          schools as well. Starting this younger can help gain more experience 
+          and get used to socializing with the other people. Another hope we have is
+          to get someone from our club as a state officer. We are also always interested in 
+          growing ur club. A goal of National TSA is to ave 500,000 people in TSA overall.
         </p>
       </div>
     </div>
+    <footer class="site-footer">
+      <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
+    </footer>
   </body>
 </html>
-
