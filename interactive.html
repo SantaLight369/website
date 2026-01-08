@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TSA Interactive Page</title>
+  <link rel="stylesheet" href="interactive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
 
+  <body>
+  <h3 class="hints">This timeline provides basic facts on how our TSA club formed, to where it is today. Click on the <mark>dots</mark> to get more information!</h3>
+    <div class="timelinewrapper">
+      <ul class="timeline">
+        <li data-date="Around 30 years ago">
+          <span class="title">The SFHS TSA club is established</span>
+          <div class="data">
+            <h3>At this time...</h3>
+            <small>Around 30 years ago</small>
+            <p>The SF TSA club begins at the high school.</p>
+            <span class="close">Click to Close</span>
+          </div>
+        </li>
+
+        <li data-date="2017">
+          <span class="title">The current advisor for SF TSA takes over the club</span>
+          <div class="data">
+            <h3>At this time...</h3>
+            <small>2017</small>
+            <p>The current advisor today for the club took it over during the 2017-2018 year, after the previous advisor retired.</p>
+            <span class="close">Click to Close</span>
+          </div>
+        </li>
+
+        <li data-date="2023">
+          <span class="title">Kids winning a lot of awards.</span>
+          <div class="data">
+            <h3>At this time...</h3>
+            <small>2023</small>
+            <p>That year, most of the members of TSA brought home awards for the club and school.</p>
+            <span class="close">Click to Close</span>
+          </div>
+        </li>
+
+        <li data-date="2024">
+          <span class="title">The cookie crumbl fundraiser</span>
+          <div class="data">
+            <h3>At this time...</h3>
+            <small>2024</small>
+            <p>TSA collaborated with Crumbl Cookies last year. Basically a person could buy crumbl and show a flyer explaining that they want to donate to TSA. It worked out well for the SFHS TSA club.</p>
+            <span class="close">Click to Close</span>
+          </div>
+        </li>
+
+        <li data-date="2025-2026">
+          <span class="title">TSA grows strong</span>
+          <div class="data">
+            <h3>At this time...</h3>
+            <small>2025-2026</small>
+            <p>This year, TSA has grown to be one of the biggest clubs in SF high school. From 11 members the first year it has grown to around 75-80 members today.</p>
+            <span class="close">Click to Close</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+
+      const timeline = document.querySelectorAll('.timeline li .data');
+
+      for(const time of timeline) {
+        time.onclick = ()=> time.classList.toggle('show');
+      }
+
+    </script>
+    
+  </body>
+
+</html>
