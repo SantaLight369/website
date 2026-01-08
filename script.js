@@ -370,36 +370,40 @@ function convertTime(time) {
 }
 
 
-eventsContainer.addEventListener("click" , (e) => {
-  if (e.target.classList.contains("event")) {
-    const eventTitle = e.target.children[0].children[1].innerHTML;
+eventsContainer.addEventListener("click", (e) => {
+  const eventDiv = e.target.closest(".event");
+  if (!eventDiv) return;
 
-    eventsArr.forEach((event) => {
-      if (
-        event.day == activeDay &&
-        event.month == month + 1 &&
-        event.year == year
-      ) {
-        event.events.forEach((item, index) => {
-          if(item.title == eventTitle) {
-            event.events.splice(index, 1);
-          }
-        });
+  const eventTitle = eventDiv.querySelector(".event-title").innerHTML;
 
-        if(event.events.length == 0) {
-          eventsArr.splice(eventsArr.indexOf(event) , 1);
+  eventsArr.forEach((event) => {
+    if (
+      event.day == activeDay &&
+      event.month == month + 1 &&
+      event.year == year
+    ) {
+     
+      const index = event.events.findIndex(item => item.title === eventTitle);
+      if (index > -1) {
+        event.events.splice(index, 1); 
+      }
 
-          const activeDayElem = document.querySelector(".day.active");
-          if (activeDayElem.classList.contains("event")) {
-            activeDayElem.classList.remove("event");
-          }
+   
+      if (event.events.length == 0) {
+        const dayIndex = eventsArr.indexOf(event);
+        if (dayIndex > -1) eventsArr.splice(dayIndex, 1);
+
+        const activeDayElem = document.querySelector(".day.active");
+        if (activeDayElem && activeDayElem.classList.contains("event")) {
+          activeDayElem.classList.remove("event");
         }
       }
-    });
+    }
+  });
 
-    updateEvents(activeDay);
-  }
+  updateEvents(activeDay);
 });
+
 
 
 function saveEvents() {
