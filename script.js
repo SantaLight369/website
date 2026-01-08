@@ -416,3 +416,4 @@ function getEvents() {
 
   eventsArr.push(...JSON.parse(storedEvents));
 }
+

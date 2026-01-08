@@ -1,161 +1,131 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>South Fayette HS TSA</title>
     <script src="script2.js"></script>
     <style type="text/css">
+      html {
+        font-size: 16px;
+      }
 
-        html{
-            font-size: 16px;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Source Sans Pro", sans-serif;
+        background-color: #ffffff;
+        height: 100%;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-        html, body {
-            margin: 0;
-            font-family: 'Source Sans Pro', sans-serif;
-            background-color: #FFFFFF;
-            height: 100%;
-        }
-        body{
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+      .navbar {
+        background: #005daa;
+        font-family: "Source Sans Pro";
+        padding: 2px 3%;
+      }
+      .logo {
+        margin-left: auto;
+      }
 
-       
-        .navbar {
-            background:#005DAA; 
-            font-family: 'Source Sans Pro';
-            padding: 2px 3%;
-        }
-        .logo {
-            margin-left: auto;
-        }
+     .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
+      }
 
-        .navdiv {
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
+      .navdiv ul {
+        list-style-type: none;
+        display: flex;
+        gap: 24px;
+        padding: 0;
+        margin: 0;
+      }
 
-        .navdiv ul {
-            list-style-type: none;
-            display: flex;
-            gap: 24px;
-            padding: 0;
-            margin: 0;
-        }
+      .navdiv ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 21.5px;
+        position: relative;
+      }
+      .navdiv ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width 0.2s ease-in-out;
+      }
 
-        .navdiv ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 21.5px;
-            position: relative;
-            
-        }
-        .navdiv ul li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background-color: #FFFFFF;
-            transition: width 0.2s ease-in-out;
-        }
+      .navdiv ul li a:hover::after {
+        width: 100%;
+      }
 
-        .navdiv ul li a:hover::after {
-            width: 100%;
-        }
+      .suggestions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        max-height: 200px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1000;
+      }
 
-        .search-bar {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            height: 60px;
-            width: 60px;
-            
-            padding: 10px 20px;
-            
-            cursor: pointer;
-            
-            transition: 0.5s ease-in-out;
-        }
-        .search-bar input {
-            width: 100%;
-            height: 100%;
-            margin-left: 12px;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            font-weight: 400;
-            background-color: transparent;
-            color: #FFFFFF;
+      .suggestions div {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
 
-        }
+      .suggestions div:hover {
+        background-attachment: #ffffff;
+      }
 
-        .search-bar input::placeholder {
-            color: #FFFFFF;
-        }
-        .search-bar i {
-            cursor: pointer;
-            font-size: 25px;
-            margin: 8px 0px 0px 14px;
-            color: #FFFFFF;
-        }
-        .search-bar:hover {
-            width: 400px;
-        }
+      main {
+        flex: 1;
+        text-align: center;
+        padding: 10px 20px 0 20px;
+      }
 
-        .suggestions {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #FFFFFF;
-            max-height: 200px;
-            overflow-y: auto;
-            display: none;
-            z-index: 1000;
-        }
+      h1 {
+        color: #000000;
+        text-align: center;
+        font-size: 35px;
+      }
 
-        .suggestions div {
-            padding: 8px 12px;
-            cursor: pointer;
-        }
+      main p {
+        font-size: 18px;
+        color: #000000;
+        text-align: center;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+        line-height: 1.6;
+      }
 
-        .suggestions div:hover {
-            background-attachment: #FFFFFF;
-        }
+      .full-thing {
+        margin: 20px auto 40px auto;
+        width: 100%;
+      }
 
-            
-        main {
-            flex: 1;
-            text-align: center;
-            padding: 10px 20px 0 20px; 
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        main p {
-            font-size: 18px;
-            color: #000000;
-            text-align: center;
-
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        .slides{
+      .slides {
         margin: 20px auto 40px auto;
         width: 100%;
         height: 70vh;
@@ -163,162 +133,130 @@
         position: relative;
         border: none;
         box-shadow: none;
-    }
+      }
 
-   .slide{
-    position: absolute;
-    height: 100%;
-    opacity: 0;
-    inset: 0;
-    animation: slide-show 12s infinite;
-   }
-   .slide-1{
-    animation-delay: 0s;
-   }
-
-   .slide-2{
-    animation-delay: 4s;
-   }
-
-   .slide-3{
-    animation-delay: 8s;
-   }
-
-   .slide-4{
-    animation-delay: 10s;
-   }
-
-   .slide img{
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-   }
-
-   .dots{
-    display: flex;
-    gap: 16px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 24px;
-    
-   }
-
-   .dot{
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-   }
-
-   .dot.active{
-    scale: 1.5;
-
-   }
-
-   @keyframes slide-show{
-    0%{
+      .slide {
+        position: absolute;
+        height: 100%;
         opacity: 0;
-    }
-    10%{
-        opacity: 1; 
+        inset: 0;
+        animation: slide-show 12s infinite;
+      }
+      .slide-1 {
+        animation-delay: 0s;
+      }
 
-    }
-    20%,
-    30%{
-    opacity: 1;
-        transform: scale(1.03);
-    }
-    50%{
-        opacity: 0;
-    }    
-   }      
+      .slide-2 {
+        animation-delay: 4s;
+      }
 
-  
+      .slide-3 {
+        animation-delay: 8s;
+      }
 
-        .site-footer {
-            background-color: #EE2624;              
-            color: #FFFFFF;                          
-            text-align: center;                       
-            font-family: 'Source Sans Pro', sans-serif; 
-            font-weight: 400;                          
-            font-size: 17px;                           
-            padding: 25px 0;                           
-            margin-top: auto;                          
-            width: 100%;                                
-            box-sizing: border-box; 
+      .slide-4 {
+        animation-delay: 10s;
+      }
+
+      .slide img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+      }
+
+      
+
+      @keyframes slide-show {
+        0% {
+          opacity: 0;
         }
+        10% {
+          opacity: 1;
+        }
+        20%,
+        30% {
+          opacity: 1;
+          transform: scale(1.03);
+        }
+        50% {
+          opacity: 0;
+        }
+      }
 
-    </style>  
-</head>
+      .site-footer {
+        background-color: #ee2624;
+        color: #ffffff;
+        text-align: center;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        padding: 25px 0;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar">
-    <div class="navdiv">
+      <div class="navdiv">
         <a href="index.html">
-            <img src="logo image.png" alt="Logo" />
+          <img src="image/logo image.png" alt="Logo" height="110"/>
         </a>
-    
-       
-            <ul>
-            <li><a href="/repo-name/index.html">Home</a></li>
-          <li><a href="/repo-name/ourstory.html">Our Story</a></li>
-          <li><a href="/repo-name/interactive.html">Timeline</a></li>
-          <li><a href="/repo-name/calendar.html">Calendar</a></li>
-          <li><a href="/repo-name/events.html">Events</a></li>
-          <li><a href="/repo-name/highlights.html">Highlights</a></li>
-          <li><a href="/repo-name/help.html">Help</a></li>
-          <li><a href="/repo-name/reference.html">Reference Page</a></li>
-            </ul>
-           <div class="search-bar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search...">
-            <div class="suggestions"></div>
-           </div> 
-        </div>
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ourstory.html">Our Story</a></li>
+          <li><a href="#">Timeline</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="highlights.html">Highlights</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="reference.html">Reference Page</a></li>
+        </ul>
+        
+      </div>
     </nav>
 
     <main>
-        <h1>South Fayette High School TSA Community</h1>
-        <p>Welcome to the South Fayette TSA Community website. Here, students, parents, and staff can learn more about what we 
-            have to offer, upcoming events, and acknowledge the achievements
-             of our members. Our chapter provides many opportunities to 
-             develop leadership, teamwork, STEM skills, and overcoming challenges. 
-             You can find all the resources and information you need right here.</p>
+      <h1>South Fayette High School TSA Community</h1>
+      <div class="full-thing">
+        <p>
+          Welcome to the South Fayette TSA Community website. Here, students,
+          parents, and staff can learn more about what we have to offer,
+          upcoming events, and acknowledge the achievements of our members. Our
+          chapter provides many opportunities to develop leadership, teamwork,
+          STEM skills, and overcoming challenges. You can find all the resources
+          and information you need right here.
+        </p>
 
         <div class="slides">
-        <div class="slide slide-1">
-          <img src="image/image1.png" alt="">  
-        </div>
-        <div class="slide slide-2">
-          <img src="image/image2.png" alt="">  
-        </div>
-        <div class="slide slide-3">
-          <img src="image/image3.png" alt="">  
-        </div>
-        <div class="slide slide-4">
-          <img src="image/image.4.png" alt="">  
-        </div>
+          <div class="slide slide-1">
+            <img src="image/image1.png" alt="" />
+          </div>
 
-        <div class="dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
+          <div class="slide slide-2">
+            <img src="image/image2.png" alt="" />
+          </div>
+          <div class="slide slide-3">
+            <img src="image/image3.png" alt="" />
+          </div>
+          <div class="slide slide-4">
+            <img src="image/image.4.png" alt="" />
+          </div>
 
+          
+        </div>
+      </div>
     </main>
-     
 
     <footer class="site-footer">
-        <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
+      <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
     </footer>
-<script src="main.js"></script>
-    </body>
+    <script src="main.js"></script>
+  </body>
 </html>

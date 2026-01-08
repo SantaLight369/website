@@ -1,418 +1,614 @@
-const calendar = document.querySelector(".calendar"),
-date = document.querySelector(".date"),
-daysContainer = document.querySelector(".days"),
-prev = document.querySelector(".prev"),
-next = document.querySelector(".next"),
-todayBtn = document.querySelector(".today-btn"),
-gotoBtn = document.querySelector(".goto-btn"),
-dateInput = document.querySelector(".date-input"),
- eventDay = document.querySelector(".event-day"),
- eventDate = document.querySelector(".event-date"),
- eventsContainer = document.querySelector(".events"),
- addEventSubmit = document.querySelector(".add-event-btn");
+:root {
+  --primary-clr: #ee2624;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
 
+html,
+body {
+  height: 100%;
+  margin: 0%;
+}
 
-
-let today = new Date();
-let activeDay;
-let month = today.getMonth();
-let year = today.getFullYear();
-
-const months = [
-   "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",  
-];
-
-
-let eventsArr = [];
-
-getEvents();
-
-function initCalendar() {
-
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const prevLastDay = new Date(year, month, 0);
-    const prevDays = prevLastDay.getDate();
-    const lastDate = lastDay.getDate();
-    const firstDayIndex = firstDay.getDay();
-    const nextDays = 7 - lastDay.getDay() - 1;
-
-    date.innerHTML = months[month] + ' ' + year;
-
-   let days = '';
-   for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
-   }
-   for(let i = 1; i <= lastDate; i++){
-
-    let event = false;
-    eventsArr.forEach((eventObj) => {
-      if(
-        eventObj.day == i &&
-        eventObj.month == month + 1 &&
-        eventObj.year == year
-      ) {
-        event = true;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+.navbar {
+        background: #005DAA;
+        width: 100%;
+        font-family: "Source Sans Pro";
+        padding: 2px 3%;
       }
-    });
-
-    if(i == new Date().getDate() && 
-    year == new Date().getFullYear() && 
-    month == new Date().getMonth()){
-
-      activeDay = i;
-      getActiveDay(i);
-      updateEvents(i);
-
-    if (event) {
-       days += `<div class="day today active event">${i}</div>`;
-    }
-  else {
-     days += `<div class="day today active">${i}</div>`;
-  }
-    }
-    else {
-     if (event) {
-       days += `<div class="day event">${i}</div>`;
-    }
-  else {
-     days += `<div class="day">${i}</div>`;
-  }
-    }
-   }
-   for (let j = 1; j <= nextDays; j++){
-     days += `<div class="day next-date ">${j}</div>`;
-   }
-
-
-    daysContainer.innerHTML = days;
-    addListener();
-}
-
-initCalendar();
-
-function prevMonth() {
-  month--;
-  if(month < 0) {
-    month = 11;
-    year--;
-  }
-  initCalendar();
-}
-
-function nextMonth() {
-  month++;
-  if (month > 11) {
-    month = 0;
-    year++;
-  }
-  initCalendar();
-}
-
-prev.addEventListener("click", prevMonth);
-next.addEventListener("click", nextMonth);
-
-todayBtn.addEventListener("click", () => {
-  today = new Date();
-  month = today.getMonth();
-  year = today.getFullYear();
-  initCalendar();
-});
-
-dateInput.addEventListener("input", () => {
-  dateInput.value = dateInput.value.replace(/[^0-9/]/g, "").slice(0, 7);
-});
-
-gotoBtn.addEventListener("click", gotoDate);
-
-function gotoDate() {
-  const dateArr = dateInput.value.split("/");
-  if(dateArr.length == 2) {
-    if(dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length == 4) {
-      month = dateArr[0] - 1;
-      year = parseInt(dateArr[1]);
-      initCalendar();
-      return;
-    }
-  }
-  alert("invalid date");
-}
-
-const addEventBtn = document.querySelector(".add-event"),
-  addEventContainer = document.querySelector(".add-event-wrapper"),
-  addEventCloseBtn = document.querySelector(".close"),
-  addEventTitle = document.querySelector(".event-name"),
-  addEventFrom = document.querySelector(".event-time-from"),
-  addEventTo = document.querySelector(".event-time-to");
-
-addEventBtn.addEventListener("click", () => {
-  addEventContainer.classList.toggle("active");
-});
-
-addEventCloseBtn.addEventListener("click", () => {
-  addEventContainer.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-  if (e.target != addEventBtn && !addEventContainer.contains(e.target)) {
-    addEventContainer.classList.remove("active");
-  }
-});
-
-addEventTitle.addEventListener("input", (e) => {
-  addEventTitle.value = addEventTitle.value.slice(0,50);
-});
-
-
-
-addEventFrom.addEventListener("input", (e) => {
-  let value = addEventFrom.value;
-  value = value.replace(/\D/g, "");
-  if (value.length > 2) {
-    value = value.slice(0, 2) + ":" + value.slice(2, 4);
-  }
-  addEventFrom.value = value.slice(0, 5);
-});
-
-addEventTo.addEventListener("input", (e) => {
-  let value = addEventTo.value.replace(/\D/g, "");
-  if (value.length >= 3) {
-    value = value.slice(0, 2) + ":" + value.slice(2, 4);
-  }
-  addEventTo.value = value.slice(0, 5);
-});
-
-function addListener() {
-  const days = document.querySelectorAll(".day");
-  days.forEach((day) => {
-    day.addEventListener("click" , (e) => {
-      activeDay = Number(e.target.innerHTML);
-
-      getActiveDay(e.target.innerHTML);
-       updateEvents(Number(e.target.innerHTML));
-
-      days.forEach((day) => {
-        day.classList.remove("active");
-      });
-
-      if(e.target.classList.contains("prev-date")) {
-        prevMonth();
-
-        setTimeout(() => {
-          const days = document.querySelectorAll(".day");
-
-          days.forEach((day) => {
-            if(!day.classList.contains("prev-date") 
-              && day.innerHTML == e.target.innerHTML) {
-            day.classList.add("active");
-          }
-          });
-        }, 100);
-
-      }else 
-        if(e.target.classList.contains("next-date")) {
-        nextMonth();
-
-        setTimeout(() => {
-          const days = document.querySelectorAll(".day");
-
-          days.forEach((day) => {
-            if(!day.classList.contains("next-date") 
-              && day.innerHTML == e.target.innerHTML) {
-            day.classList.add("active");
-          }
-          });
-        }, 100);
+      .logo {
+        margin-left: auto;
       }
 
-      else {
-        e.target.classList.add("active");
+       .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 32px;
       }
-    });
-  });
+
+      .navdiv ul {
+        list-style-type: none;
+        display: flex;
+        gap: 24px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navdiv ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 21.5px;
+        position: relative;
+      }
+      .navdiv ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width 0.2s ease-in-out;
+      }
+
+      .navdiv ul li a:hover::after {
+        width: 100%;
+      }
+
+      .page-header {
+        text-align: center;
+        font-size: 40px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #000000;
+        margin: 40px 0;
+      }
+.container {
+  margin-top: 20px;
+  width: 1200px;
+  min-height: 850px;
+  padding: 5px;
+  color: #005daa;
+  display: flex;
+  border-radius: 10px;
+  background-color: #005daa;
+  margin-bottom: 60px;
+}
+.left {
+  width: 60%;
+  padding: 20px;
+}
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+  border-radius: 5px;
+  background-color: #ffffff;
+  position: relative;
+}
+.calendar::before,
+.calendar::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 12px;
+  height: 97%;
+  border-radius: 0 5px 5px 0;
+  background-color: #ffffff;
+  transform: translateY(-50%);
+}
+.calendar::before {
+  height: 94%;
+  left: calc(100% + 12px);
+  background-color: #ffffff;
+}
+.calendar .month {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
-
-function getActiveDay(date) {
-  const day = new Date(year, month, date);
-  const dayName = day.toLocaleDateString('en-US', { weekday: 'long' });
-  eventDay.innerHTML = dayName;
-  eventDate.innerHTML = date + " " + months[month] + " " + year;
+.calendar .month .prev,
+.calendar .month .next {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.calendar .month .prev:hover,
+.calendar .month .next:hover {
+  color: var(--primary-clr);
+}
+.calendar .weekdays {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.calendar .weekdays div {
+  width: 14.28%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar .days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 20px;
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+.calendar .days .day {
+  width: 14.28%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  border: 1px solid #ee2624;
+  font-size: 14px;
+}
+.calendar .day:not(.prev-date, .next-date):hover {
+  color: #ee2624;
+  background-color: #005daa;
+}
+.calendar .days .prev-date,
+.calendar .days .next-date {
+  color: rgb(170, 53, 188);
+}
+.calendar .days .active {
+  position: relative;
+  font-size: 18px;
+  color: maroon;
+  background-color: #005daa;
+}
+.calendar .days .active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px 2px var(--primary-clr);
+}
+.calendar .days .today {
+  font-size: 20px;
+}
+.calendar .days .event {
+  position: relative;
+}
+.calendar .days .event::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 75%;
+  height: 6px;
+  border-radius: 30px;
+  transform: translate(-50%);
+  background-color: #ee2624;
 }
 
-function updateEvents(date) {
-  let events = "";
-  eventsArr.forEach((event) => {
+.calendar .days .today:not(.event)::after {
+  display: none;
+}
 
-    if (
-      date == event.day &&
-      month + 1 == event.month &&
-      year == event.year
-    ) {
+.calendar .event:hover::after {
+  background-color: #ee2624;
+}
+.calendar .active.event::after {
+  background-color: #ee2624;
+}
+.calendar .active.event {
+  padding-bottom: 10px;
+}
+.calendar .goto-today {
+  margin-top: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calendar .goto-today .goto {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--primary-clr);
+}
+.calendar .goto-today .goto input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 20px;
+  color: var(--primary-clr);
+  border-radius: 5px;
+}
+.calendar .goto-today button {
+  padding: 5px 10px;
+  border: 1px solid var(--primary-clr);
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--primary-clr);
+}
+.calendar .goto-today button:hover {
+  color: #ffffff;
+  background-color: var(--primary-clr);
+}
+.calendar .goto-today .goto button {
+  border: none;
+  border-left: 1px solid var(--primary-clr);
+  border-radius: 0;
+}
 
-      event.events.forEach((event) => {
-     events += `
-    <div class="event">
-      <div class="title">
-        <i class="fas fa-circle"></i>
-        <h3 class="event-title">${event.title}</h3>
-      </div>
-      <div class="event-time">
-        <span class="event-time">${event.time}</span>
-      </div>
-    </div>
-  `;
-      });
-    }
-  });
+.calendar .month .date {
+  pointer-events: none;
+  flex: 1;
+  text-align: center;
+}
 
-  if ((events == "")) {
-    events = `<div class="no-event">
-    <h3>No Events</h3>
-    </div> `;
+.container .right {
+  position: relative;
+  width: 40%;
+  min-height: 100%;
+  padding: 20px 0;
+  color: #ffffff;
+}
+
+.right .today-date {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  padding-left: 70px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.today-date .event-day {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.today-date .event-date {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.events {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+
+.events .event {
+  position: relative;
+  width: 95%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 20px;
+  padding-left: 50px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ee2624, transparent);
+}
+
+.events .event:nth-child(even) {
+  background: transparent;
+}
+
+.events .event:hover {
+  background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+
+.events .event .title {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.events .event .title .event-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.events .event .title i {
+  color: var(--primary-clr);
+  font-size: 12px;
+}
+
+.events .event:hover .title i,
+.events .event:hover .event-time {
+  color: #ffffff;
+}
+
+.events .event .event-time {
+  font-size: 10px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-left: 15px;
+  pointer-events: none;
+}
+
+.events .event::after {
+  content: "√";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 48px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  color: var(--primary-clr);
+  transform: translateY(-50%);
+}
+.event:hover::after {
+  display: flex;
+}
+
+.events .no-event {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #560a08;
+}
+
+.add-event-wrapper {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  width: 90%;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transform: translateX(-50%);
+  transition: max-height 0.5s;
+}
+
+.add-event-wrapper.active {
+  max-height: 300px;
+}
+
+.add-event-header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #373c4f;
+  border-bottom: 1px solid #ffffff;
+}
+
+.add-event-header .close {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.add-event-header .close:hover {
+  color: var(--primary-clr);
+}
+
+.add-event-header .title {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.add-event-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+
+.add-event-body .add-event-input {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.add-event-body .add-event-input input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.add-event-body .add-event-input input::placeholder {
+  color: #000000;
+}
+
+.add-event-body .add-event-input input:focus {
+  border-color: var(--primary-clr);
+}
+
+.add-event-body .add-event-input input:focus::placeholder {
+  color: var(--primary-clr);
+}
+
+.add-event-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.add-event-btn {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  background-color: var(--primary-clr);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid var(--primary-clr);
+}
+
+.add-event-btn:hover {
+  color: var(--primary-clr);
+  background-color: transparent;
+}
+
+.add-event {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000000;
+  border: 2px solid #000000;
+  opacity: 0.5;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add-event:hover {
+  opacity: 1;
+}
+
+.add-event i {
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  body {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
-
-  eventsContainer.innerHTML = events;
-
-saveEvents();
+  .container {
+    min-height: 100vh;
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .container .left,
+  .container .right {
+    width: 100%;
+    height: 100%;
+    padding: 20 0;
+  }
+  .calendar::before,
+  .calendar::after {
+    top: 100%;
+    left: 50%;
+    width: 97%;
+    height: 12px;
+    border-radius: 0 0 5px 5px;
+    transform: translateX(-50%);
+  }
+  .calendar::before {
+    width: 94%;
+    top: calc(100% + 12px);
+  }
+  .events {
+    padding-bottom: 340px;
+  }
+  .add-event-wrapper {
+    bottom: 100px;
+  }
 }
 
-addEventSubmit.addEventListener("click" , () => {
-  const eventTitle = addEventTitle.value;
-  const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-
-  if(eventTitle == "" || 
-    eventTimeFrom == "" || 
-    eventTimeTo =="" ) {
-      alert("Please fill out all the fields");
-    }
-
-    const timeFrontArr = eventTimeFrom.split(":");
-    const timeToArr = eventTimeTo.split(":");
-
-    if (
-      timeFrontArr.length != 2 ||
-      timeToArr.length != 2 ||
-      timeFrontArr[0] > 23 ||
-      timeFrontArr[1] > 59 ||
-      timeToArr[0] > 23 ||
-      timeToArr[1] > 59 
-    ) {
-      alert("Invalid Time Format");
-    }
-
-
-    const timeFrom = convertTime(eventTimeFrom);
-     const timeTo = convertTime(eventTimeTo);
-
-     const newEvent = {
-      title: eventTitle,
-      time: timeFrom + " - " + timeTo
-     };
-
-     let eventAdded = false;
-     if (eventsArr.length > 0) {
-      eventsArr.forEach((item) => {
-        if (
-          item.day == activeDay &&
-          item.month == month + 1 &&
-          item.year == year
-        ) {
-          item.events.push(newEvent);
-          eventAdded = true;
-        }
-      });
-     }
-
-     if(!eventAdded) {
-      eventsArr.push({
-        day: activeDay,
-        month: month + 1,
-        year: year,
-        events : [newEvent],
-      });
-     }
-
-     addEventContainer.classList.remove("active")
-     addEventTitle.value = "";
-     addEventFrom.value = "";
-     addEventTo.value = "";
-
-     updateEvents(activeDay);
-     initCalendar();
-
-     const activeDayElem = document.querySelector(".day.active");
-     if (!activeDayElem.classList.contains("event")) {
-     activeDayElem.classList.add("event");
-     }
-});
-
-function convertTime(time) {
-  let timeArr = time.split(":");
-  let timeHour = timeArr[0];
-  let timeMin = timeArr[1];
-  let timeFormat = timeHour >= 12 ? "PM" : "AM";
-  timeHour = timeHour % 12 || 12;
-  time = timeHour + ":" + timeMin + " " + timeFormat;
-  return time;
+@media (max-width: 500px) {
+  .calendar .month {
+    height: 75px;
+  }
+  .calendar .weekdays {
+    height: 50px;
+  }
+  .calendar .days .day {
+    height: 40px;
+    font-size: 13px;
+  }
+  .calendar .days .day.active,
+  .calendar .days .day.today {
+    font-size: 16px;
+  }
+  .right .today-date {
+    padding: 20px;
+  }
 }
 
-
-eventsContainer.addEventListener("click", (e) => {
-  const eventDiv = e.target.closest(".event");
-  if (!eventDiv) return;
-
-  const eventTitle = eventDiv.querySelector(".event-title").innerHTML;
-
-  eventsArr.forEach((event) => {
-    if (
-      event.day == activeDay &&
-      event.month == month + 1 &&
-      event.year == year
-    ) {
-     
-      const index = event.events.findIndex(item => item.title === eventTitle);
-      if (index > -1) {
-        event.events.splice(index, 1); 
+.site-footer {
+        background-color: #ee2624;
+        color: #ffffff;
+        text-align: center;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        padding: 25px 0;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
       }
-
-   
-      if (event.events.length == 0) {
-        const dayIndex = eventsArr.indexOf(event);
-        if (dayIndex > -1) eventsArr.splice(dayIndex, 1);
-
-        const activeDayElem = document.querySelector(".day.active");
-        if (activeDayElem && activeDayElem.classList.contains("event")) {
-          activeDayElem.classList.remove("event");
-        }
-      }
-    }
-  });
-
-  updateEvents(activeDay);
-});
-
-
-
-function saveEvents() {
-  localStorage.setItem("events" , JSON.stringify(eventsArr));
-}
-
-function getEvents() {
-  const storedEvents = localStorage.getItem("events");
-  if (storedEvents === null) return;
-
-  eventsArr.push(...JSON.parse(storedEvents));
-}
