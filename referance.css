@@ -1,1 +1,51 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
+h3 {
+    background-color: #324659;
+    color: white;
+    padding: 12px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+}
+
+.together {
+    display: flex;
+    justify-self: center;
+    gap: 15px;
+}
+
+.together img {
+    width: 325px;
+    height: auto;
+}
+
+.everybody {
+    display: flex;
+    justify-self: center;
+    gap: 15px;
+}
+
+.everybody img {
+    width: 325px;
+    height: auto;
+}
+
+.yar {
+    display: flex;
+    justify-self: center;
+    gap: 23px; 
+}
+
+.yar img {
+    width: 325px;
+    height: auto;
+}
