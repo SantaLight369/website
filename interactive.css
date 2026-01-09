@@ -74,7 +74,6 @@ mark {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
 }
 
 .timeline {
@@ -90,7 +89,7 @@ mark {
 
 .timeline li {
     position: relative;
-    width: 20rem;
+    width: 15rem;
 }
 
 .timeline li::before,
