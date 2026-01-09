@@ -2,6 +2,21 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;  
+    }
+
+ .navbar {
+        background: #005daa;
+        font-family: "Source Sans Pro";
+        padding: 2px 3%;
+      }
+
+.logo {
+        margin-left: auto;
+      }
 .navdiv {
         display: flex;
         align-items: center;
