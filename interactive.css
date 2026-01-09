@@ -1,18 +1,17 @@
 :root {
-    body {
-    padding-top: 50px;  
-    padding-bottom: 50px; 
-    min-height: 100vh;   
-    display: flex;
-    flex-direction: column;
-}
     --primary-color: #005DAA;
 }
+
+body {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
 .navbar {
-        background: #005daa;
-        font-family: "Source Sans Pro";
-        padding: 2px 3%;
-      }
+    background: #005daa;
+    font-family: "Source Sans Pro";
+    padding: 2px 3%;
+}
       .logo {
         margin-left: auto;
       }
