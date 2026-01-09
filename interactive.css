@@ -67,6 +67,9 @@ mark {
 }
 
 .timelinewrapper {
+    justify-content: flex-start;
+}
+{
     max-width: 100vw;
     height: 88vh;
 
@@ -78,7 +81,7 @@ mark {
 
 .timeline {
     height: .12rem;
-    padding: 0 4rem;
+    padding: 0 1.5rem;
     background-color: #4D4D4F;
     list-style-type: none;
 
