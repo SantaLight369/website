@@ -45,29 +45,29 @@ div {
     background-color: white;
     padding: 32px;
     border: 4px solid black;
-    height: 145vh;
-    width: 1620px;
+    height: 140vh;
+    width: 1600px;
     margin: 90px;
 }
 
 h2 {
     text-align: center;
-    font-size: 63px;
+    font-size: 55px;
 }
 
 p {
     text-align: center; 
-    font-size: 42px;
+    font-size: 40px;
 }
 
 hr {
     border: none;
-    height: 4px;
+    height: 3px;
     background: black;
 }
 
 ul {
-    font-size: 28px;
+    font-size: 25px;
 }
 
 .site-footer {
