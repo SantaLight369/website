@@ -322,7 +322,7 @@ let eventsArr = [
   events: [
     {title: "States", time: "7:00 AM - 2:00 PM"}
   ]
-}
+},
 ];
 
 
