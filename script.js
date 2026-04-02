@@ -118,7 +118,211 @@ let eventsArr = [
       {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
       {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"}
     ]
- }
+ },
+ {
+  day: 5,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Data Science & Analytics", time: "7:00 AM - 2:00 PM"}
+  ]
+ }, 
+ {
+  day: 12,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Debating Technological Issues", time: "7:00 AM - 2:00 PM"},
+    {title: "In House for Digital Video Production", time: "7:20 AM - 2:00 PM"},
+    {title: "In House for PA - Medical Technology", time: "7:20 AM - 2:00 PM"},
+    {title: "In House for Fashion Design & Technology", time: "7:20 AM - 2:00 PM"}
+  ]
+ },
+  {
+  day: 13,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Debating Technological Issues", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+   {
+  day: 14,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Debating Technological Issues", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+   {
+  day: 15,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Debating Technological Issues", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+   {
+  day: 16,
+  month: 1,
+  year: 2026,
+  events: [
+    {title: "In House for Debating Technological Issues", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+ {
+  day: 20,
+  month: 1, 
+  year:2026, 
+  events: [
+    {title: "In House for Software Development", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+ {
+  day: 21,
+  month: 1, 
+  year:2026, 
+  events: [
+    {title: "In House for Software Development", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+ {
+  day: 22,
+  month: 1, 
+  year:2026, 
+  events: [
+    {title: "In House for Software Development", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+ {
+  day: 23,
+  month: 1, 
+  year:2026, 
+  events: [
+    {title: "In House for Software Development", time: "7:00 AM - 2:00 PM"}
+  ]
+ },
+ {
+  day: 8,
+  month: 1, 
+  year:2026, 
+  events: [
+    {title: "Early Submission for Regionals", time: "7:00 AM - 11:59 PM"}
+  ]
+ },
+{
+  day:24,
+  month:1,
+  year:2026,
+  events: [
+    {title: "Regionals", time: "9:00 AM - 2:00 PM"}
+  ]
+},
+{
+  day: 20,
+  month: 2,
+  year: 2026, 
+  events: [
+    {title: "Roomate Selections for States", time: "7:00 AM - 2:00 PM"},
+    {title: "Turn in Forms and Money for States", time: "7:00 AM - 2:00 PM"}
+  ]
+},
+{
+  day: 1,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 2,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 3,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 4,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 5,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 6,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 7,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 8,
+  month: 4,
+  year: 2026,
+  events: [
+    {title: "Early Submission Due for States", time: "12:00 AM - 11:59 PM"}
+  ]
+},
+{
+  day: 15,
+  month: 4, 
+  year: 2026,
+  events: [
+    {title: "States", time: "7:00 AM - 2:00 PM"}
+  ]
+},
+{
+  day: 16,
+  month: 4, 
+  year: 2026,
+  events: [
+    {title: "States", time: "7:00 AM - 2:00 PM"}
+  ]
+},
+{
+  day: 17,
+  month: 4, 
+  year: 2026,
+  events: [
+    {title: "States", time: "7:00 AM - 2:00 PM"}
+  ]
+},
+{
+  day: 18,
+  month: 4, 
+  year: 2026,
+  events: [
+    {title: "States", time: "7:00 AM - 2:00 PM"}
+  ]
+}
 ];
 
 
