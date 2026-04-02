@@ -34,9 +34,94 @@ const months = [
 ];
 
 
-let eventsArr = [];
+let eventsArr = [
+  {
+    day: 19,
+    month: 9,
+    year: 2025,
+    events: [
+      {title: "Turn in Member Collection Form", time: "7:00 AM - 2:00 PM"},
+      {title: "Turn in Registration Fee", time: "7:00 AM - 2:00 PM"},
+      {title: "Turn in all Required Forms", time: "7:00 AM - 2:00 PM"},
+      {title: "Submit Event Choices", time: "7:00 AM - 2:00 PM"}
+    ]
+  }, 
+  {
+    day: 10,
+    month: 9,
+    year: 2025,
+    events: [
+      {title: "Officer Presentations and Vote", time: "7:00 AM - 2:00 PM"}
+    ]
+  },
+  {
+    day: 3,
+    month: 10,
+    year: 2025,
+    events: [
+      {title: "Join Student Square", time: "7:00 AM - 2:00 PM"}
+    ]
+  }, 
+  {
+    day: 24,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Board Game Design", time: "7:00 AM - 12:00 PM"},
+      {title: "In House for Future Technology & Engineering Teacher", time: "7:00 AM - 12:00 PM"},
+      {title: "In House for Music Production", time: "7:00 AM - 12:00 PM"},
+      {title: "In House for Promotional Design", time: "7:00 AM - 12:00 PM"}
+    ]
+  },
+  {
+    day: 17,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"}
+    ]
+  },
+ {
+   day: 18,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"}
+    ]
+ },
+ {
+   day: 19,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Forensic Science", time: "7:00 AM - 2:00 PM"}
+    ]
+ }, 
+ {
+  day: 20,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"}
+    ]
+ },
+ {
+  day: 21,
+    month: 11,
+    year: 2025,
+    events: [
+      {title: "In House for Extemporaneous Speech", time: "7:00 AM - 2:00 PM"},
+      {title: "In House for Prepared Presentation", time: "7:00 AM - 2:00 PM"}
+    ]
+ }
+];
 
-getEvents();
+
 
 function initCalendar() {
 
@@ -417,3 +502,30 @@ function getEvents() {
   eventsArr.push(...JSON.parse(storedEvents));
 }
 
+
+
+
+
+
+
+
+
+
+async function fetchData() {
+
+  try{
+    const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQit2x512hoQ8jblPr_cYVLLG6hcJjeqbVydX-cFQ-jzBqcHBGkBSfDrmhM8POxGVkH0mHu-OO0AIxT/pub?output=csv");
+      if(!response.ok){
+        throw new Error("Network response was not okay")
+      }
+  }
+
+  catch(error){
+    console.error(error);
+  }
+}
+
+
+    
+
+    
