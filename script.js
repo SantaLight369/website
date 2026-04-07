@@ -11,6 +11,45 @@ dateInput = document.querySelector(".date-input"),
  eventsContainer = document.querySelector(".events"),
  addEventSubmit = document.querySelector(".add-event-btn");
 
+     let inputBox = document.querySelector(".input-box");
+    let search = document.querySelector(".search");
+    let selection = document.querySelector(".selection");
+    let selected_text = document.querySelector(".selection p");
+    let categories = document.querySelector(".categories");
+    let options = document.querySelectorAll(".categories p");
+    let input = inputBox.querySelector("input");
+
+    search.addEventListener("click", () => inputBox.classList.toggle("open"));
+
+    selection.onclick = function(){
+      categories.classList.toggle("active");
+    }
+
+    options.forEach(option => {
+      option.onclick = function (){
+        selected_text.innerHTML = option.innerHTML;
+        categories.classList.toggle("active");
+      }
+    });
+
+   input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // prevent form submission
+    let filter = selected_text.innerHTML;
+    let url = "";
+
+    if (filter === "History") {
+      url = "ourstory.html";
+    } else if (filter === "Events") {
+      url = "calendar.html";
+    } else if (filter === "Questions") {
+      url = "help.html";
+    } 
+
+    window.location.href = url; 
+  }
+});
+
 
 
 let today = new Date();
@@ -706,30 +745,3 @@ function getEvents() {
   eventsArr.push(...JSON.parse(storedEvents));
 }
 
-
-
-
-
-
-
-
-
-
-async function fetchData() {
-
-  try{
-    const response = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQit2x512hoQ8jblPr_cYVLLG6hcJjeqbVydX-cFQ-jzBqcHBGkBSfDrmhM8POxGVkH0mHu-OO0AIxT/pub?output=csv");
-      if(!response.ok){
-        throw new Error("Network response was not okay")
-      }
-  }
-
-  catch(error){
-    console.error(error);
-  }
-}
-
-
-    
-
-    
