@@ -238,12 +238,11 @@
 
       .nav-id {
         text-align: center;
-        margin-top: 4px;
+        margin-top: 0px;
         font-size: 12px;
         color: #ffffff;
         letter-spacing: 1px;
-        padding-top: 2px;
-
+        padding-top: 1px;
       }
 
       .site-footer {
@@ -253,35 +252,43 @@
         font-family: "Source Sans Pro", sans-serif;
         font-weight: 400;
         font-size: 17px;
-        padding: 25px 0;
-        margin-top: auto;
+        padding: 20px 0;
         width: 100%;
         box-sizing: border-box;
+        padding-top: 2px;
+      }
+      .site-footer p {
+        margin: 0;
+        padding-top: 35px;
       }
 
-      .first, .second, .third, .fourth {
+.first, .second, .third, .fourth {
   display: flex;
-  align-items: center;
-  gap: 30px;
-  margin: 40px 0;
+  align-items: flex-start; 
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
 }
 
-.first img,
-.second img,
-.third img,
-.fourth img {
+
+.first img, .second img, .third img, .fourth img {
   width: 50%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;
   border-radius: 10px;
 }
 
-.first p,
-.second p,
-.third p,
-.fourth p {
+
+.first p, .second p, .third p, .fourth p {
   width: 50%;
-  padding: 0;
+  align-items: center;
+}
+
+.second, .fourth {
+  flex-direction: row-reverse; 
+}
+
+.first, .third {
+  flex-direction: row; 
 }
 
   </style>
@@ -378,10 +385,13 @@
     line-height: 1.6; 
   }
 </style>
+<div class="wholeimg">
+
+
     <div class="first">
-      
+      <img class="img1" src="image/photo1.jpg" />
       <p>
-        <img class="img1" src="image/photo1.jpg" />
+        
          Tanvi (Freshman) <br>
       1. What is a challenge you came across in TSA? <br>
       Figuring out what project you wanna do and who you want to work with because when you decide what project you have to continue it and you can't choose something else. <br><br>
@@ -395,8 +405,9 @@
     </p>
 </div>
    <div class="second">
-     <p>
     <img class="img2" src="image/photo2.jpg" />
+     <p>
+    
 
  Oviya (Junior) <br>
       1. What are some strengths our community has?<br> 
@@ -408,8 +419,9 @@
     </div>
    
       <div class="third">
+        <img class="img3" src="image/photo3.jpg" />
 <p>
-  <img class="img3" src="image/photo3.jpg" />
+  
          Alya (Freshman) <br>
       1. What are some strengths our community has? <br>
       Our TSA clubs shows a lot of diversity which helps us move with the times. Since everyone is at a different point in life we are able to learn more things. We are able to find an equal balance which shows that our community is healthy. <br><br>
@@ -421,8 +433,9 @@
       </div>  
     
     <div class="fourth">
+      <img class="img4" src="image/photo4.jpg" />
 <p>
-  <img class="img4" src="image/photo4.jpg" />
+  
          Anshika (Sophmore) <br>
       1. How has TSA provided life skills? <br> 
       TSA taught me not to procastinate and do my work on time. Like last year when we did children storiesit was really hectic because we did not have a lot of planning. Time management is important. <br><br>
@@ -434,7 +447,7 @@
        One of our strengths as a community is always rooting for each other and being there for one another. <br> <br>
     </p>
     </div>
-    
+    </div>
 
     <footer class="site-footer">
       <p>&copy; 2025 South Fayette HS TSA. All rights reserved.</p>
