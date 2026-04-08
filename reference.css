@@ -164,7 +164,7 @@ body {
 }
 
 .input-box .selection p {
-    font-size: 18px;
+    font-size: 21px;
     color: #ffffff;
     margin: 0;
 }
@@ -199,7 +199,7 @@ body {
 }
 
 .input-box.open .categories.active {
-    font-size: 16px; 
+    font-size: 20px; 
     opacity: 1;
     pointer-events: auto;
     display: block;
