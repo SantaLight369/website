@@ -28,6 +28,7 @@ body {
 
 .navdiv img {
   height: 110px;
+  display: block;
 }
 
 .navdiv {
